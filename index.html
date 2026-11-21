@@ -139,13 +139,34 @@ footer{border-top:1px solid var(--line)}
 .fcols .row span:last-child{color:var(--dim)}
 .fbar{text-align:center;color:var(--dim);font-size:.85rem;padding:18px 20px calc(18px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
 
-@media (prefers-reduced-motion: reduce){
+/* living background */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:var(--black)}
+.bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.2px);background-size:28px 28px;-webkit-mask-image:radial-gradient(ellipse at 50% 25%,#000,transparent 72%);mask-image:radial-gradient(ellipse at 50% 25%,#000,transparent 72%)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform}
+.o1{width:min(70vw,520px);height:min(70vw,520px);top:-8%;right:-12%;background:rgba(57,255,20,.22);animation:drift1 18s ease-in-out infinite alternate}
+.o2{width:min(60vw,440px);height:min(60vw,440px);bottom:-10%;left:-14%;background:rgba(57,255,20,.14);animation:drift2 22s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(-18vw,16vh) scale(1.15)}}
+@keyframes drift2{to{transform:translate(20vw,-18vh) scale(.9)}}
+.petal{position:fixed;bottom:-30px;left:var(--x);width:var(--s);height:var(--s);border:1.5px solid var(--neon);border-radius:0 100% 0 100%;opacity:0;box-shadow:0 0 8px rgba(57,255,20,.5);animation:rise var(--d) linear var(--t) infinite;pointer-events:none;z-index:-1}
+@keyframes rise{0%{transform:translate(0,0) rotate(0);opacity:0}10%{opacity:.55}50%{transform:translate(28px,-55vh) rotate(160deg)}90%{opacity:.4}100%{transform:translate(-20px,-112vh) rotate(340deg);opacity:0}}
+.spot{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(closest-side,rgba(57,255,20,.13),transparent);pointer-events:none;z-index:-1;opacity:0;transition:opacity .4s;will-change:transform}
+.spot.on{opacity:1}
+@supports (animation-timeline:scroll()){
+  .bg{animation:par linear both;animation-timeline:scroll(root)}
+  @keyframes par{to{transform:translateY(-14vh)}}
+  .hero-art{animation:lift linear both;animation-timeline:scroll(root);animation-range:0 90vh}
+  @keyframes lift{to{transform:translateY(70px)}}
+}
+@media (prefers-reduced-motion: reduce){.petal,.spot{display:none}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .stem{stroke-dashoffset:0}.leaf,.bl{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
+<div class="bg" aria-hidden="true"><div class="orb o1"></div><div class="orb o2"></div></div>
+<div class="spot" aria-hidden="true"></div>
+<span class="petal" aria-hidden="true" style="--x:8%;--s:12px;--d:16s;--t:0s"></span><span class="petal" aria-hidden="true" style="--x:22%;--s:9px;--d:21s;--t:-6s"></span><span class="petal" aria-hidden="true" style="--x:37%;--s:14px;--d:18s;--t:-11s"></span><span class="petal" aria-hidden="true" style="--x:51%;--s:10px;--d:24s;--t:-3s"></span><span class="petal" aria-hidden="true" style="--x:66%;--s:13px;--d:19s;--t:-14s"></span><span class="petal" aria-hidden="true" style="--x:79%;--s:9px;--d:22s;--t:-8s"></span><span class="petal" aria-hidden="true" style="--x:91%;--s:12px;--d:17s;--t:-1s"></span>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="rose" viewBox="0 0 80 80"><g class="sym"><circle cx="40" cy="40" r="31"/><circle cx="42" cy="38" r="22"/><circle cx="39" cy="41" r="13"/><circle cx="41" cy="39" r="5" stroke="var(--neon)"/></g></symbol>
@@ -286,5 +307,20 @@ footer{border-top:1px solid var(--line)}
   </div>
   <div class="fbar">© Bloom Bar. Handmade in the Maldives.</div>
 </footer>
+<script>
+(function(){
+  try{
+    var fine=matchMedia('(hover:hover) and (pointer:fine)').matches,calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+    var s=document.querySelector('.spot');
+    if(!fine||calm||!s)return;
+    var x=0,y=0,raf=0;
+    addEventListener('pointermove',function(e){
+      x=e.clientX;y=e.clientY;s.classList.add('on');
+      if(!raf)raf=requestAnimationFrame(function(){s.style.transform='translate('+x+'px,'+y+'px)';raf=0});
+    },{passive:true});
+    document.addEventListener('pointerleave',function(){s.classList.remove('on')});
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
