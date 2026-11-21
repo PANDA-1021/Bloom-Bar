@@ -123,7 +123,9 @@ footer{border-top:1px solid var(--line)}
 @media(min-width:820px){.fcols{grid-template-columns:1.2fr 1fr}}
 .fcols h2{font-size:clamp(1.4rem,5vw,2rem)}
 .fcols .row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:12px 0}
-.fcols .row span:last-child{color:var(--dim)}
+.fcols .row span:last-child{color:var(--dim);text-align:right;overflow-wrap:anywhere}
+.fcols .row a{text-decoration:none;color:var(--white);transition:color .2s}
+.fcols .row a:hover{color:var(--neon)}
 .fbar{text-align:center;color:var(--dim);font-size:.85rem;padding:18px 20px calc(18px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
 
 .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:var(--black)}
@@ -318,8 +320,8 @@ footer{border-top:1px solid var(--line)}
       <p style="color:var(--dim)">Have a question about our flowers or want to place an order? Get in touch.</p>
     </div>
     <div>
-      <div class="row"><span>Instagram</span><span>Coming soon</span></div>
-      <div class="row"><span>Email</span><span>Coming soon</span></div>
+      <div class="row"><span>Instagram</span><span><a href="https://www.instagram.com/flowerboutique.mv/" target="_blank" rel="noopener">@flowerboutique.mv</a></span></div>
+      <div class="row"><span>Email</span><span><a href="mailto:flowerboutique6767@gmail.com">flowerboutique6767@gmail.com</a></span></div>
       <div class="row"><span>Location</span><span>Maldives</span></div>
     </div>
   </div>
