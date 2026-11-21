@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bloom Bar – Paper flowers that never wilt</title>
+<title>Flower Boutique – Paper flowers that never wilt</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -31,7 +31,6 @@ section{padding:64px 0}
 .glow{filter:drop-shadow(0 0 6px rgba(57,255,20,.55))}
 .sym{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* header */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:10px 20px}
 .brand{display:flex;align-items:center;gap:10px;margin-right:auto;text-decoration:none;font:600 1.05rem "Unbounded",sans-serif}
@@ -42,11 +41,8 @@ section{padding:64px 0}
 .btn{display:inline-block;background:var(--neon);color:#000;font:700 .95rem "Manrope",sans-serif;text-decoration:none;padding:14px 26px;border-radius:999px;border:0;box-shadow:0 0 0 rgba(57,255,20,0);transition:box-shadow .25s,transform .2s}
 .btn:hover,.btn:active{box-shadow:0 0 22px rgba(57,255,20,.75);transform:translateY(-2px)}
 .btn.sm{padding:9px 18px;font-size:.85rem}
-.btn.ghost{background:transparent;color:var(--white);border:1.5px solid var(--white)}
-.btn.ghost:hover{border-color:var(--neon);color:var(--neon)}
 .btn.onwhite{background:#000;color:var(--neon)}
 
-/* hero */
 .hero{padding:40px 0 56px;position:relative;overflow:hidden}
 .hero .wrap{display:grid;gap:20px;align-items:center}
 @media(min-width:820px){.hero .wrap{grid-template-columns:1.05fr 1fr}.hero{padding:70px 0 80px}}
@@ -66,7 +62,6 @@ section{padding:64px 0}
 @keyframes sway{50%{transform:rotate(1.6deg)}}
 @keyframes breathe{50%{opacity:.55;transform:scale(1.06)}}
 
-/* perks */
 .perks{border-block:1px solid var(--line)}
 .perks .wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:22px 20px}
 @media(min-width:820px){.perks .wrap{grid-template-columns:repeat(4,1fr)}}
@@ -74,7 +69,6 @@ section{padding:64px 0}
 .perk span{color:var(--dim);font-size:.88rem}
 .perk b::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);margin-right:9px;vertical-align:1px}
 
-/* white band */
 .white{background:var(--white);color:#000}
 .white p{color:#2b2f2a}
 .promo{padding:48px 0}
@@ -83,36 +77,31 @@ section{padding:64px 0}
 .promo h2{font-size:clamp(2rem,8vw,3.4rem)}
 .promo .big{display:inline-block;background:#000;color:var(--neon);padding:.05em .3em;border-radius:12px;text-shadow:0 0 18px rgba(57,255,20,.7);animation:glowtxt 3s ease-in-out infinite}
 @keyframes glowtxt{50%{text-shadow:0 0 4px rgba(57,255,20,.3)}}
-.promo svg{width:100%;max-width:300px;margin:0 auto;display:block;color:#000}
+.promo img{width:100%;max-width:300px;margin:0 auto;display:block;border-radius:18px;aspect-ratio:4/5;object-fit:cover;object-position:50% 65%}
 
-/* products */
 .sec-sub{color:var(--dim);margin-bottom:30px}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(min-width:780px){.cards{grid-template-columns:repeat(3,1fr);gap:16px}}
 @media(min-width:1020px){.cards{grid-template-columns:repeat(5,1fr)}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;display:flex;flex-direction:column;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
 .card:hover{border-color:var(--neon);box-shadow:0 0 26px rgba(57,255,20,.22);transform:translateY(-4px)}
-.card .pic{aspect-ratio:1;display:grid;place-items:center;border-bottom:1px solid var(--line)}
-.card .pic svg{width:62%;color:var(--white);transition:transform .5s cubic-bezier(.2,1.2,.4,1)}
-.card:hover .pic svg{transform:rotate(8deg) scale(1.06)}
+.card .pic{aspect-ratio:4/5;overflow:hidden;border-bottom:1px solid var(--line);background:#111}
+.card .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 65%;display:block;transition:transform .6s cubic-bezier(.2,1,.4,1)}
+.card:hover .pic img{transform:scale(1.06)}
 .card .txt{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
 .card h3{margin:0;font-size:.98rem}
 .card p{margin:0;font-size:.86rem;color:var(--dim);line-height:1.5}
 .price{font-size:.85rem;color:var(--neon)}
 .card .btn{margin-top:auto;text-align:center;padding:11px 8px;font-size:.85rem}
 
-/* about */
 .two{display:grid;gap:32px}
 @media(min-width:820px){.two{grid-template-columns:1fr 1fr;gap:64px}}
 .mv{display:grid;gap:14px;align-content:start}
-.mv div{border:1.5px solid #000;border-radius:18px;padding:22px}
-.mv div:first-child{background:#000;color:var(--white)}
-.mv div:first-child h3{color:var(--neon)}
-.mv h3{margin-bottom:.4em}.mv p{margin:0;color:inherit}
+.mv div{border-radius:18px;padding:22px;background:var(--panel);border:1px solid var(--line)}
+.mv h3{margin-bottom:.4em;color:var(--neon)}.mv p{margin:0;color:var(--dim)}
 
-/* process */
-.steps{list-style:none;margin:0 auto;padding:0;counter-reset:s;display:grid;gap:12px;max-width:680px;position:relative}
-.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;transition:border-color .25s}
+.steps{list-style:none;margin:0 auto;padding:0;counter-reset:s;display:grid;gap:12px;max-width:680px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;background:#000;color:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;transition:border-color .25s}
 .steps li:hover{border-color:var(--neon)}
 .steps li::before{content:counter(s);width:44px;height:44px;border-radius:50%;border:1.5px solid var(--neon);color:var(--neon);font:600 1rem "Unbounded",sans-serif;display:grid;place-items:center;box-shadow:0 0 14px rgba(57,255,20,.35)}
 .steps b{display:block}
@@ -120,7 +109,6 @@ section{padding:64px 0}
 #process h2,#process .sec-sub{text-align:center}
 #process .sec-sub{margin-inline:auto}
 
-/* why */
 .why{display:grid;gap:12px;grid-template-columns:1fr}
 @media(min-width:620px){.why{grid-template-columns:1fr 1fr}}
 @media(min-width:960px){.why{grid-template-columns:repeat(5,1fr)}}
@@ -130,7 +118,6 @@ section{padding:64px 0}
 .usp{margin-top:18px;border:1.5px solid var(--neon);border-radius:18px;padding:22px;box-shadow:0 0 28px rgba(57,255,20,.18),inset 0 0 28px rgba(57,255,20,.06)}
 .usp h3{margin-bottom:.3em}.usp p{margin:0;color:var(--dim)}
 
-/* footer */
 footer{border-top:1px solid var(--line)}
 .fcols{display:grid;gap:28px;padding:48px 20px 36px}
 @media(min-width:820px){.fcols{grid-template-columns:1.2fr 1fr}}
@@ -139,7 +126,6 @@ footer{border-top:1px solid var(--line)}
 .fcols .row span:last-child{color:var(--dim)}
 .fbar{text-align:center;color:var(--dim);font-size:.85rem;padding:18px 20px calc(18px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
 
-/* living background */
 .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:var(--black)}
 .bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.2px);background-size:28px 28px;-webkit-mask-image:radial-gradient(ellipse at 50% 25%,#000,transparent 72%);mask-image:radial-gradient(ellipse at 50% 25%,#000,transparent 72%)}
 .orb{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform}
@@ -149,15 +135,7 @@ footer{border-top:1px solid var(--line)}
 @keyframes drift2{to{transform:translate(20vw,-18vh) scale(.9)}}
 .petal{position:fixed;bottom:-30px;left:var(--x);width:var(--s);height:var(--s);border:1.5px solid var(--neon);border-radius:0 100% 0 100%;opacity:0;box-shadow:0 0 8px rgba(57,255,20,.5);animation:rise var(--d) linear var(--t) infinite;pointer-events:none;z-index:-1}
 @keyframes rise{0%{transform:translate(0,0) rotate(0);opacity:0}10%{opacity:.55}50%{transform:translate(28px,-55vh) rotate(160deg)}90%{opacity:.4}100%{transform:translate(-20px,-112vh) rotate(340deg);opacity:0}}
-.spot{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(closest-side,rgba(57,255,20,.13),transparent);pointer-events:none;z-index:-1;opacity:0;transition:opacity .4s;will-change:transform}
-.spot.on{opacity:1}
-@supports (animation-timeline:scroll()){
-  .bg{animation:par linear both;animation-timeline:scroll(root)}
-  @keyframes par{to{transform:translateY(-14vh)}}
-  .hero-art{animation:lift linear both;animation-timeline:scroll(root);animation-range:0 90vh}
-  @keyframes lift{to{transform:translateY(70px)}}
-}
-@media (prefers-reduced-motion: reduce){.petal,.spot{display:none}
+@media (prefers-reduced-motion: reduce){.petal{display:none}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .stem{stroke-dashoffset:0}.leaf,.bl{opacity:1;transform:none}
 }
@@ -165,21 +143,18 @@ footer{border-top:1px solid var(--line)}
 </head>
 <body>
 <div class="bg" aria-hidden="true"><div class="orb o1"></div><div class="orb o2"></div></div>
-<div class="spot" aria-hidden="true"></div>
-<span class="petal" aria-hidden="true" style="--x:8%;--s:12px;--d:16s;--t:0s"></span><span class="petal" aria-hidden="true" style="--x:22%;--s:9px;--d:21s;--t:-6s"></span><span class="petal" aria-hidden="true" style="--x:37%;--s:14px;--d:18s;--t:-11s"></span><span class="petal" aria-hidden="true" style="--x:51%;--s:10px;--d:24s;--t:-3s"></span><span class="petal" aria-hidden="true" style="--x:66%;--s:13px;--d:19s;--t:-14s"></span><span class="petal" aria-hidden="true" style="--x:79%;--s:9px;--d:22s;--t:-8s"></span><span class="petal" aria-hidden="true" style="--x:91%;--s:12px;--d:17s;--t:-1s"></span>
+<span class="petal" aria-hidden="true" style="--x:8%;--s:12px;--d:16s;--t:0s"></span><span class="petal" aria-hidden="true" style="--x:37%;--s:14px;--d:18s;--t:-11s"></span><span class="petal" aria-hidden="true" style="--x:66%;--s:13px;--d:19s;--t:-14s"></span><span class="petal" aria-hidden="true" style="--x:91%;--s:12px;--d:17s;--t:-1s"></span>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="rose" viewBox="0 0 80 80"><g class="sym"><circle cx="40" cy="40" r="31"/><circle cx="42" cy="38" r="22"/><circle cx="39" cy="41" r="13"/><circle cx="41" cy="39" r="5" stroke="var(--neon)"/></g></symbol>
     <symbol id="daisy" viewBox="0 0 80 80"><g class="sym"><ellipse cx="40" cy="19" rx="7" ry="15"/><ellipse cx="40" cy="19" rx="7" ry="15" transform="rotate(45 40 40)"/><ellipse cx="40" cy="19" rx="7" ry="15" transform="rotate(90 40 40)"/><ellipse cx="40" cy="19" rx="7" ry="15" transform="rotate(135 40 40)"/><ellipse cx="40" cy="19" rx="7" ry="15" transform="rotate(180 40 40)"/><ellipse cx="40" cy="19" rx="7" ry="15" transform="rotate(225 40 40)"/><ellipse cx="40" cy="19" rx="7" ry="15" transform="rotate(270 40 40)"/><ellipse cx="40" cy="19" rx="7" ry="15" transform="rotate(315 40 40)"/><circle cx="40" cy="40" r="8" stroke="var(--neon)" fill="var(--neon)"/></g></symbol>
     <symbol id="lav" viewBox="0 0 80 80"><g class="sym"><path d="M40 78V28"/><ellipse cx="40" cy="12" rx="5" ry="8"/><ellipse cx="31" cy="25" rx="5" ry="8" transform="rotate(-25 31 25)"/><ellipse cx="49" cy="25" rx="5" ry="8" transform="rotate(25 49 25)"/><ellipse cx="31" cy="41" rx="5" ry="8" transform="rotate(-25 31 41)"/><ellipse cx="49" cy="41" rx="5" ry="8" transform="rotate(25 49 41)"/><ellipse cx="33" cy="57" rx="5" ry="8" transform="rotate(-20 33 57)" stroke="var(--neon)"/><ellipse cx="47" cy="57" rx="5" ry="8" transform="rotate(20 47 57)" stroke="var(--neon)"/></g></symbol>
-    <symbol id="lotus" viewBox="0 0 80 80"><g class="sym"><ellipse cx="40" cy="38" rx="9" ry="26"/><ellipse cx="40" cy="38" rx="9" ry="26" transform="rotate(-35 40 64)"/><ellipse cx="40" cy="38" rx="9" ry="26" transform="rotate(35 40 64)"/><ellipse cx="40" cy="44" rx="8" ry="22" transform="rotate(-65 40 68)"/><ellipse cx="40" cy="44" rx="8" ry="22" transform="rotate(65 40 68)"/><path d="M8 70C24 76 56 76 72 70" stroke="var(--neon)"/></g></symbol>
-    <symbol id="calla" viewBox="0 0 80 80"><g class="sym"><path d="M40 78V46"/><path d="M17 14C17 48 29 60 40 60C51 60 63 48 63 14C51 27 29 27 17 14Z"/><path d="M40 54V24" stroke="var(--neon)" stroke-width="5"/></g></symbol>
   </defs>
 </svg>
 
 <div class="top">
   <header class="nav">
-    <a class="brand" href="#home" aria-label="Bloom Bar home"><svg viewBox="0 0 80 80" class="glow" aria-hidden="true"><use href="#rose"/></svg>Bloom Bar</a>
+    <a class="brand" href="#home" aria-label="Flower Boutique home"><svg viewBox="0 0 80 80" class="glow" aria-hidden="true"><use href="#rose"/></svg>Flower Boutique</a>
     <a class="l" href="#products">Products</a>
     <a class="l" href="#about">About</a>
     <a class="l" href="#process">Process</a>
@@ -227,11 +202,11 @@ footer{border-top:1px solid var(--line)}
     <h2>Our products</h2>
     <p class="sec-sub">Handmade paper flowers, each inspired by a flower you’d find in nature.</p>
     <div class="cards">
-      <article class="card"><div class="pic"><svg viewBox="0 0 80 80" class="glow" aria-hidden="true"><use href="#daisy"/></svg></div><div class="txt"><h3>Daisies</h3><p>Classic and cheerful, made for bright bouquets.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
-      <article class="card"><div class="pic"><svg viewBox="0 0 80 80" class="glow" aria-hidden="true"><use href="#rose"/></svg></div><div class="txt"><h3>Roses</h3><p>Timeless, and a natural pick for gifts and special occasions.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
-      <article class="card"><div class="pic"><svg viewBox="0 0 80 80" class="glow" aria-hidden="true"><use href="#lav"/></svg></div><div class="txt"><h3>Lavender</h3><p>Delicate and graceful, ideal for soft, elegant arrangements.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
-      <article class="card"><div class="pic"><svg viewBox="0 0 80 80" class="glow" aria-hidden="true"><use href="#lotus"/></svg></div><div class="txt"><h3>Lotus flowers</h3><p>Elegant blooms that stand for beauty and grace.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
-      <article class="card"><div class="pic"><svg viewBox="0 0 80 80" class="glow" aria-hidden="true"><use href="#calla"/></svg></div><div class="txt"><h3>Calla lilies</h3><p>Simple, sophisticated shape for refined arrangements.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><img src="images/Daisies.jpg" alt="White paper daisies with yellow centres in a woven basket" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Daisies</h3><p>Classic and cheerful, made for bright bouquets.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><img src="images/Roses.jpg" alt="Red paper roses in a woven basket" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Roses</h3><p>Timeless, and a natural pick for gifts and special occasions.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><img src="images/Lavender.jpg" alt="Lilac paper lavender stems in a black vase" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Lavender</h3><p>Delicate and graceful, ideal for soft, elegant arrangements.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><img src="images/Lotus.jpg" alt="Multicoloured paper lotus flowers in a woven basket" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Lotus flowers</h3><p>Elegant blooms that stand for beauty and grace.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><img src="images/Calla_lillies.jpg" alt="Paper calla lilies in red, orange, brown and maroon in a black vase" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Calla lilies</h3><p>Simple, sophisticated shape for refined arrangements.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
     </div>
   </div>
 </section>
@@ -244,7 +219,7 @@ footer{border-top:1px solid var(--line)}
       <p>Order during our first week to get the discount.</p>
       <a class="btn onwhite" href="#contact">Order now</a>
     </div>
-    <svg viewBox="0 0 80 80" aria-hidden="true"><use href="#rose"/></svg>
+    <img src="images/Roses.jpg" alt="Red paper roses in a woven basket" width="560" height="700" loading="lazy">
   </div>
 </section>
 
@@ -252,13 +227,13 @@ footer{border-top:1px solid var(--line)}
   <div class="wrap two">
     <div>
       <h2>Who we are</h2>
-      <p style="color:var(--dim)">Bloom Bar makes handmade flowers from paper.</p>
+      <p style="color:var(--dim)">Flower Boutique makes handmade flowers from paper.</p>
       <p style="color:var(--dim)">We started it to offer a beautiful alternative to fresh flowers, and to give customers something unique.</p>
       <p style="color:var(--dim)">Every flower is designed to look good, stay affordable and last.</p>
     </div>
-    <div class="mv" style="gap:14px">
-      <div style="background:var(--panel);border:1px solid var(--line)"><h3 style="color:var(--neon)">Our mission</h3><p style="color:var(--dim)">Beautiful, affordable, long-lasting paper flowers that offer a creative alternative to fresh ones.</p></div>
-      <div style="background:var(--panel);border:1px solid var(--line)"><h3 style="color:var(--neon)">Our vision</h3><p style="color:var(--dim)">A flower brand known for unique handmade designs, quality and happy customers.</p></div>
+    <div class="mv">
+      <div><h3>Our mission</h3><p>Beautiful, affordable, long-lasting paper flowers that offer a creative alternative to fresh ones.</p></div>
+      <div><h3>Our vision</h3><p>A flower brand known for unique handmade designs, quality and happy customers.</p></div>
     </div>
   </div>
 </section>
@@ -267,7 +242,7 @@ footer{border-top:1px solid var(--line)}
   <div class="wrap">
     <h2>From paper to petals</h2>
     <p class="sec-sub" style="color:#2b2f2a">Every flower is made by hand in five steps.</p>
-    <ol class="steps" style="--panel:#000">
+    <ol class="steps">
       <li><div><b>Preparation</b><span>Gather the paper and materials.</span></div></li>
       <li><div><b>Designing</b><span>Choose the flower, colours and design.</span></div></li>
       <li><div><b>Cutting</b><span>Cut the paper into the shapes needed.</span></div></li>
@@ -279,7 +254,7 @@ footer{border-top:1px solid var(--line)}
 
 <section id="why">
   <div class="wrap">
-    <h2>Why choose Bloom Bar</h2>
+    <h2>Why choose Flower Boutique</h2>
     <p class="sec-sub">What sets our flowers apart.</p>
     <div class="why">
       <div><b>Long-lasting</b><span>Paper flowers don’t wilt like fresh ones.</span></div>
@@ -305,22 +280,7 @@ footer{border-top:1px solid var(--line)}
       <div class="row"><span>Location</span><span>Maldives</span></div>
     </div>
   </div>
-  <div class="fbar">© Bloom Bar. Handmade in the Maldives.</div>
+  <div class="fbar">© Flower Boutique. Handmade in the Maldives.</div>
 </footer>
-<script>
-(function(){
-  try{
-    var fine=matchMedia('(hover:hover) and (pointer:fine)').matches,calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-    var s=document.querySelector('.spot');
-    if(!fine||calm||!s)return;
-    var x=0,y=0,raf=0;
-    addEventListener('pointermove',function(e){
-      x=e.clientX;y=e.clientY;s.classList.add('on');
-      if(!raf)raf=requestAnimationFrame(function(){s.style.transform='translate('+x+'px,'+y+'px)';raf=0});
-    },{passive:true});
-    document.addEventListener('pointerleave',function(){s.classList.remove('on')});
-  }catch(e){}
-})();
-</script>
 </body>
 </html>
