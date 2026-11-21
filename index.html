@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bloom Bar – Flowers That Last Forever</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --soft:#F4F7EC; --mint:#DCE7CF; --mint2:#C6D7B4; --ink:#1F3A1A; --muted:#55684F; --line:#E2E9D8;
+  --deep:#27501F; --on-deep:#FFFFFF; --petal:#E48CA8; --sun:#E5B94E; --lav:#9A86C8; --stone:#E8DFD0;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121A10; --soft:#18221A; --mint:#223221; --mint2:#35503A; --ink:#EDF3E4; --muted:#AEBFA8; --line:#2C3E2A;
+    --deep:#6FA660; --on-deep:#0E1A0B; --stone:#2D3328;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121A10; --soft:#18221A; --mint:#223221; --mint2:#35503A; --ink:#EDF3E4; --muted:#AEBFA8; --line:#2C3E2A;
+  --deep:#6FA660; --on-deep:#0E1A0B; --stone:#2D3328;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "DM Sans",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--deep);z-index:40}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:600;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2rem,8.5vw,3.4rem);text-transform:uppercase;letter-spacing:.01em}
+h2{font-size:clamp(1.4rem,5vw,1.9rem);text-transform:uppercase;text-align:center;letter-spacing:.04em}
+h3{font-size:1.15rem}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:48px 0}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30}
+.ann{background:var(--deep);color:var(--on-deep);text-align:center;font-size:.85rem;padding:8px 14px}
+.nav{background:var(--bg);display:flex;align-items:center;gap:6px;padding:12px 20px;border-bottom:1px solid var(--line)}
+.brand{font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;margin-right:auto;line-height:1}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .logo{width:34px;height:37px;flex:0 0 auto}
+.brand .wm{display:block}
+.brand small{display:block;font:500 .6rem "DM Sans",sans-serif;letter-spacing:.3em;text-align:center;margin-top:3px}
+.nav a.l{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:6px 10px;display:none}
+@media(min-width:820px){.nav a.l{display:inline-block}}
+.btn{display:inline-block;background:var(--deep);color:var(--on-deep);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 26px;border-radius:3px;border:0}
+.btn.sm{padding:9px 16px;font-size:.75rem}
+.hero{background:linear-gradient(120deg,var(--mint),var(--soft));padding:0;overflow:hidden}
+.hero .wrap{display:grid;gap:0;align-items:end}
+@media(min-width:820px){.hero .wrap{grid-template-columns:1fr 1.1fr}}
+.hero .copy{padding:44px 0 24px}
+.hero .copy h1 span{display:block;color:var(--deep)}
+.hero .copy p{color:var(--muted);max-width:30ch;margin-bottom:24px}
+.stage{position:relative;padding-top:10px}
+.stage svg{display:block;width:100%;max-width:520px;margin:0 auto}
+.perks{background:var(--soft);border-bottom:1px solid var(--line)}
+.perks .wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px 12px;padding-top:22px;padding-bottom:22px}
+@media(min-width:820px){.perks .wrap{grid-template-columns:repeat(4,1fr)}}
+.perk{display:flex;gap:10px;align-items:center;font-size:.9rem;line-height:1.3}
+.perk i{font-style:normal;font-size:1.5rem;color:var(--deep);flex:0 0 auto}
+.perk b{display:block}
+.perk span{color:var(--muted);font-size:.8rem}
+.promo{background:var(--mint);border-radius:4px;display:grid;gap:10px;align-items:center;overflow:hidden}
+@media(min-width:820px){.promo{grid-template-columns:1fr 1fr}}
+.promo .t{padding:32px 26px}
+.promo .k{color:var(--deep);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem;line-height:1.5;margin-bottom:10px}
+.promo h2{text-align:left;text-transform:none;font-size:clamp(1.8rem,6vw,2.5rem);letter-spacing:0}
+.promo .art{padding:10px 20px 20px}
+.promo .art svg{width:100%;max-width:360px;display:block;margin:0 auto}
+.sec-sub{text-align:center;color:var(--muted);max-width:52ch;margin:0 auto 28px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(min-width:780px){.cards{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1020px){.cards{grid-template-columns:repeat(5,1fr)}}
+.card{border:1px solid var(--line);background:var(--bg);display:flex;flex-direction:column;text-align:center}
+.card .pic{aspect-ratio:1;background:var(--soft);display:grid;place-items:center}
+.card:nth-child(2n) .pic{background:var(--stone)}
+.card .pic svg{width:66%}
+.card .txt{padding:12px 12px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:1.05rem;margin:0;font-family:"DM Sans",sans-serif;font-weight:700}
+.card p{font-size:.85rem;color:var(--muted);line-height:1.45;margin:0}
+.price{font-weight:700;font-size:.9rem}
+.card .btn{margin-top:auto;padding:10px 8px;font-size:.72rem}
+.alt{background:var(--soft)}
+.two{display:grid;gap:28px}
+@media(min-width:820px){.two{grid-template-columns:1fr 1fr;gap:56px}}
+.two h2{text-align:left}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:12px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;background:var(--bg);border:1px solid var(--line);padding:14px}
+.steps li::before{content:counter(s);width:40px;height:40px;background:var(--deep);color:var(--on-deep);font:600 1.1rem "Playfair Display",serif;display:grid;place-items:center}
+.steps b{display:block}
+.steps span{color:var(--muted);font-size:.95rem}
+.mv{display:grid;gap:14px}
+@media(min-width:700px){.mv{grid-template-columns:1fr 1fr}}
+.mv div{padding:26px;background:var(--deep);color:var(--on-deep)}
+.mv div:nth-child(2){background:var(--mint2);color:var(--ink)}
+.mv h3{text-transform:uppercase;letter-spacing:.06em;font-size:1rem}
+.mv p{margin:0}
+.why{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:620px){.why{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.why{grid-template-columns:repeat(5,1fr)}}
+.why div{border:1px solid var(--line);background:var(--bg);padding:18px}
+.why b{display:block;font:600 1.1rem "Playfair Display",serif;margin-bottom:4px}
+.why span{color:var(--muted);font-size:.95rem}
+.usp{margin-top:20px;border-left:5px solid var(--deep);background:var(--bg);padding:20px 22px}
+.usp h3{margin-bottom:.3em}.usp p{margin:0}
+footer{background:var(--soft);border-top:1px solid var(--line)}
+.fcols{display:grid;gap:26px;padding:36px 20px}
+@media(min-width:820px){.fcols{grid-template-columns:1fr 1fr 1fr}}
+.fcols h3{font-family:"DM Sans",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;font-weight:700}
+.fcols p{font-size:.95rem;color:var(--muted);margin:0 0 .5em}
+.fcols .row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:8px 0;font-size:.95rem}
+.fcols .row span:last-child{color:var(--muted)}
+.fbar{background:var(--deep);color:var(--on-deep);text-align:center;font-size:.85rem;padding:14px 20px}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="ann">Product launch: 15% off all flowers in our first week 🌸</div>
+  <header class="nav">
+    <a class="brand" href="#home" aria-label="Bloom Bar home"><svg class="logo" viewBox="0 0 48 52" aria-hidden="true"><path d="M24 33 C23 40 25 46 24 51" stroke="var(--deep)" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M24.5 44 C31 43 35 40 37 35 C30 35 26 38 24.5 44Z" fill="var(--deep)"/><g fill="var(--petal)"><ellipse cx="24" cy="11" rx="6" ry="11"/><ellipse cx="24" cy="11" rx="6" ry="11" transform="rotate(72 24 22)"/><ellipse cx="24" cy="11" rx="6" ry="11" transform="rotate(144 24 22)"/><ellipse cx="24" cy="11" rx="6" ry="11" transform="rotate(216 24 22)"/><ellipse cx="24" cy="11" rx="6" ry="11" transform="rotate(288 24 22)"/></g><g fill="#F6C9D6"><ellipse cx="24" cy="15" rx="4" ry="7" transform="rotate(36 24 22)"/><ellipse cx="24" cy="15" rx="4" ry="7" transform="rotate(108 24 22)"/><ellipse cx="24" cy="15" rx="4" ry="7" transform="rotate(180 24 22)"/><ellipse cx="24" cy="15" rx="4" ry="7" transform="rotate(252 24 22)"/><ellipse cx="24" cy="15" rx="4" ry="7" transform="rotate(324 24 22)"/></g><circle cx="24" cy="22" r="4.5" fill="var(--sun)"/></svg><span class="wm">Bloom Bar<small>PAPER FLOWERS</small></span></a>
+    <a class="l" href="#products">Products</a>
+    <a class="l" href="#about">About us</a>
+    <a class="l" href="#process">Process</a>
+    <a class="l" href="#why">Why us</a>
+    <a class="btn sm" href="#contact">Order</a>
+  </header>
+</div>
+
+<main>
+<section class="hero" id="home" style="padding:0">
+  <div class="wrap">
+    <div class="copy">
+      <h1>Flowers that last forever.<span>Beautifully yours.</span></h1>
+      <p>Welcome to Bloom Bar, where creativity blossoms! We turn ordinary paper into handmade flowers for gifts, decorations and special occasions.</p>
+      <a class="btn" href="#products">Shop now</a>
+    </div>
+    <div class="stage">
+      <svg viewBox="0 0 520 380" role="img" aria-label="Handmade paper roses, a daisy and lavender on a stone stand">
+        <path d="M60 340 C60 318 120 306 260 306 C400 306 460 318 460 340 L480 380 L40 380Z" fill="var(--stone)"/>
+        <g stroke="#4E7A3D" stroke-width="6" stroke-linecap="round" fill="none"><path d="M150 310 C150 250 160 200 158 150"/><path d="M260 310 C262 240 258 170 260 100"/><path d="M370 310 C370 260 380 220 384 180"/></g>
+        <path d="M262 250 C300 230 320 238 338 214 C312 206 280 218 262 250Z" fill="#4E7A3D"/>
+        <path d="M150 270 C118 250 100 256 84 232 C108 226 136 238 150 270Z" fill="#6E9A5A"/>
+        <g transform="translate(158 140)"><circle r="46" fill="var(--petal)"/><circle r="33" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="4"/><circle r="20" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="4"/><circle r="8" fill="#fff" fill-opacity=".75"/></g>
+        <g transform="translate(260 88)" fill="#fff" stroke="#D5DEC8" stroke-width="1.5"><ellipse cy="-30" rx="12" ry="26"/><ellipse cy="-30" rx="12" ry="26" transform="rotate(45)"/><ellipse cy="-30" rx="12" ry="26" transform="rotate(90)"/><ellipse cy="-30" rx="12" ry="26" transform="rotate(135)"/><ellipse cy="-30" rx="12" ry="26" transform="rotate(180)"/><ellipse cy="-30" rx="12" ry="26" transform="rotate(225)"/><ellipse cy="-30" rx="12" ry="26" transform="rotate(270)"/><ellipse cy="-30" rx="12" ry="26" transform="rotate(315)"/><circle r="14" fill="var(--sun)" stroke="none"/></g>
+        <g fill="var(--lav)"><ellipse cx="384" cy="150" rx="9" ry="14"/><ellipse cx="371" cy="172" rx="9" ry="14" transform="rotate(-20 371 172)"/><ellipse cx="397" cy="172" rx="9" ry="14" transform="rotate(20 397 172)"/><ellipse cx="373" cy="198" rx="9" ry="14" transform="rotate(-20 373 198)"/><ellipse cx="395" cy="198" rx="9" ry="14" transform="rotate(20 395 198)"/><ellipse cx="376" cy="226" rx="9" ry="14" transform="rotate(-15 376 226)"/><ellipse cx="392" cy="226" rx="9" ry="14" transform="rotate(15 392 226)"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="perks"><div class="wrap">
+  <div class="perk"><i>✿</i><div><b>Handmade</b><span>Crafted with care</span></div></div>
+  <div class="perk"><i>∞</i><div><b>Long-lasting</b><span>Never wilts</span></div></div>
+  <div class="perk"><i>◎</i><div><b>Affordable</b><span>For different budgets</span></div></div>
+  <div class="perk"><i>♡</i><div><b>Versatile</b><span>Gifts, décor, occasions</span></div></div>
+</div></div>
+
+<section id="products">
+  <div class="wrap">
+    <h2>Our products</h2>
+    <p class="sec-sub">Explore our collection of handmade paper flowers, each inspired by the beauty of nature.</p>
+    <div class="cards">
+      <article class="card"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><g fill="#fff" stroke="var(--mint2)" stroke-width="1.5"><ellipse cx="40" cy="20" rx="8" ry="16"/><ellipse cx="40" cy="20" rx="8" ry="16" transform="rotate(45 40 40)"/><ellipse cx="40" cy="20" rx="8" ry="16" transform="rotate(90 40 40)"/><ellipse cx="40" cy="20" rx="8" ry="16" transform="rotate(135 40 40)"/><ellipse cx="40" cy="20" rx="8" ry="16" transform="rotate(180 40 40)"/><ellipse cx="40" cy="20" rx="8" ry="16" transform="rotate(225 40 40)"/><ellipse cx="40" cy="20" rx="8" ry="16" transform="rotate(270 40 40)"/><ellipse cx="40" cy="20" rx="8" ry="16" transform="rotate(315 40 40)"/></g><circle cx="40" cy="40" r="9" fill="var(--sun)"/></svg></div><div class="txt"><h3>Daisies</h3><p>Charming flowers with a classic appearance, perfect for bright and cheerful bouquets.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="32" fill="var(--petal)"/><circle cx="40" cy="40" r="23" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3"/><circle cx="40" cy="40" r="14" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3"/><circle cx="40" cy="40" r="6" fill="#fff" fill-opacity=".7"/></svg></div><div class="txt"><h3>Roses</h3><p>Beautiful and timeless flowers, making them a lovely choice for gifts and special occasions.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M40 78V10" stroke="#4E7A3D" stroke-width="3"/><g fill="var(--lav)"><ellipse cx="40" cy="12" rx="5" ry="8"/><ellipse cx="32" cy="26" rx="5" ry="8" transform="rotate(-25 32 26)"/><ellipse cx="48" cy="26" rx="5" ry="8" transform="rotate(25 48 26)"/><ellipse cx="32" cy="42" rx="5" ry="8" transform="rotate(-25 32 42)"/><ellipse cx="48" cy="42" rx="5" ry="8" transform="rotate(25 48 42)"/><ellipse cx="33" cy="58" rx="5" ry="8" transform="rotate(-20 33 58)"/><ellipse cx="47" cy="58" rx="5" ry="8" transform="rotate(20 47 58)"/></g></svg></div><div class="txt"><h3>Lavender</h3><p>Delicate flowers known for their graceful appearance, perfect for soft and elegant arrangements.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><g fill="#EBA3BA"><ellipse cx="40" cy="36" rx="9" ry="26"/><ellipse cx="40" cy="36" rx="9" ry="26" transform="rotate(-35 40 62)" opacity=".85"/><ellipse cx="40" cy="36" rx="9" ry="26" transform="rotate(35 40 62)" opacity=".85"/><ellipse cx="40" cy="42" rx="8" ry="22" transform="rotate(-65 40 66)" opacity=".7"/><ellipse cx="40" cy="42" rx="8" ry="22" transform="rotate(65 40 66)" opacity=".7"/></g><ellipse cx="40" cy="68" rx="30" ry="5" fill="#4E7A3D" opacity=".6"/></svg></div><div class="txt"><h3>Lotus Flowers</h3><p>Elegant flowers inspired by nature, representing beauty and grace.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M40 78V44" stroke="#4E7A3D" stroke-width="3"/><path d="M18 16C18 48 30 58 40 58C50 58 62 48 62 16C50 28 30 28 18 16Z" fill="#fff" stroke="var(--mint2)" stroke-width="2"/><path d="M40 52V22" stroke="var(--sun)" stroke-width="5" stroke-linecap="round"/></svg></div><div class="txt"><h3>Calla Lilies</h3><p>Simple yet sophisticated flowers with a beautiful shape, perfect for elegant arrangements.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="promo">
+    <div class="t">
+      <div class="k">Handmade from paper.<br>Made to last.</div>
+      <h2>15% off all flowers</h2>
+      <p>Enjoy an exclusive discount during our first week.</p>
+      <a class="btn" href="#contact">Order now</a>
+    </div>
+    <div class="art"><svg viewBox="0 0 360 220" aria-hidden="true"><g transform="translate(110 110)"><circle r="78" fill="var(--petal)"/><circle r="56" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="6"/><circle r="34" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="6"/><circle r="12" fill="#fff" fill-opacity=".75"/></g><g transform="translate(262 100)" fill="#fff" stroke="var(--mint2)" stroke-width="2"><ellipse cy="-40" rx="15" ry="34"/><ellipse cy="-40" rx="15" ry="34" transform="rotate(45)"/><ellipse cy="-40" rx="15" ry="34" transform="rotate(90)"/><ellipse cy="-40" rx="15" ry="34" transform="rotate(135)"/><ellipse cy="-40" rx="15" ry="34" transform="rotate(180)"/><ellipse cy="-40" rx="15" ry="34" transform="rotate(225)"/><ellipse cy="-40" rx="15" ry="34" transform="rotate(270)"/><ellipse cy="-40" rx="15" ry="34" transform="rotate(315)"/><circle r="18" fill="var(--sun)" stroke="none"/></g></svg></div>
+  </div>
+</div>
+
+<section id="about" class="alt" style="margin-top:48px">
+  <div class="wrap two">
+    <div>
+      <h2>Who we are</h2>
+      <p>Bloom Bar is a creative business that specialises in making handmade flowers using paper.</p>
+      <p>We started this business to offer a beautiful alternative to fresh flowers while exploring our creativity and providing customers with something unique.</p>
+      <p>Our flowers are designed to be attractive, affordable and long-lasting, making them perfect for different occasions.</p>
+    </div>
+    <div class="mv" style="align-content:start">
+      <div><h3>Our mission</h3><p>To create beautiful, affordable and long-lasting paper flowers that offer a creative alternative to fresh flowers.</p></div>
+      <div><h3>Our vision</h3><p>To become a creative flower brand known for unique handmade designs, quality and customer satisfaction.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <h2>From paper to petals</h2>
+    <p class="sec-sub">Our flowers go through a simple creative process. Every flower is carefully handmade with creativity and attention to detail.</p>
+    <ol class="steps" style="max-width:640px;margin:0 auto">
+      <li><div><b>Preparation</b><span>Gather the paper and other materials needed.</span></div></li>
+      <li><div><b>Designing</b><span>Choose the flower type, colours and design.</span></div></li>
+      <li><div><b>Cutting</b><span>Carefully cut the paper into the required shapes.</span></div></li>
+      <li><div><b>Crafting</b><span>Shape and assemble the petals to create each flower.</span></div></li>
+      <li><div><b>Finishing</b><span>Add the final details to complete the flower.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="why" class="alt">
+  <div class="wrap">
+    <h2>Why choose Bloom Bar?</h2>
+    <p class="sec-sub">What makes us different?</p>
+    <div class="why">
+      <div><b>Long-lasting</b><span>Our paper flowers do not wilt like fresh flowers.</span></div>
+      <div><b>Creative</b><span>We offer different flower types and unique designs.</span></div>
+      <div><b>Affordable</b><span>Our products are designed to suit different budgets.</span></div>
+      <div><b>Versatile</b><span>Perfect for gifts, decorations and special occasions.</span></div>
+      <div><b>Handmade</b><span>Each flower is carefully crafted with attention to detail.</span></div>
+    </div>
+    <div class="usp"><h3>Our unique selling point</h3><p>Bloom Bar offers a variety of beautiful handmade paper flowers that combine creativity, affordability and long-lasting beauty.</p></div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap fcols">
+    <div>
+      <h3>We’d love to hear from you!</h3>
+      <p>Have questions about our flowers or interested in placing an order? Get in touch with Bloom Bar!</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <div class="row"><span>Instagram</span><span>Coming soon</span></div>
+      <div class="row"><span>Email</span><span>Coming soon</span></div>
+      <div class="row"><span>Location</span><span>Maldives</span></div>
+    </div>
+    <div>
+      <h3>About Bloom Bar</h3>
+      <p>Bloom Bar – Flowers That Last Forever.</p>
+      <p>Because every flower deserves to bloom! 🌸</p>
+    </div>
+  </div>
+  <div class="fbar">© Bloom Bar. Handmade in the Maldives.</div>
+</footer>
+</body>
+</html>
