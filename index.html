@@ -146,6 +146,31 @@ footer{border-top:1px solid var(--line)}
   .promo .wrap>div{animation:textin linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
   @keyframes textin{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
 }
+
+.price{display:flex;gap:10px;align-items:baseline}
+.price s{color:var(--dim);font-size:.82rem}
+.price b{color:var(--neon);font-size:1.05rem;font-family:"Unbounded",sans-serif;font-weight:600}
+.car{position:relative}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 2px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 min(78vw,340px);margin:0;aspect-ratio:3/4;position:relative;border-radius:22px;overflow:hidden;scroll-snap-align:center;border:1px solid var(--line);background:#111;transition:border-color .25s,box-shadow .25s}
+.slide:hover{border-color:var(--neon);box-shadow:0 0 26px rgba(57,255,20,.25)}
+.slide img{width:100%;height:100%;object-fit:cover;object-position:50% 80%;display:block}
+.slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.85));font:600 1rem "Unbounded",sans-serif}
+.cb{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1.5px solid var(--neon);background:rgba(0,0,0,.75);color:var(--neon);font-size:1.2rem;cursor:pointer;z-index:2;transition:box-shadow .25s}
+.cb:hover{box-shadow:0 0 18px rgba(57,255,20,.7)}
+.cb.prev{left:6px}.cb.next{right:6px}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .25s,box-shadow .25s,width .25s}
+.dots i.on{background:var(--neon);box-shadow:0 0 10px var(--neon);width:22px;border-radius:8px}
+@supports (animation-timeline:view()){
+  section h2,.sec-sub,.perk,.mv div,.about p,.steps li,.why div,.usp,.fcols .row,.fcols h2,.track{animation:rise2 linear both;animation-timeline:view();animation-range:entry 0% entry 65%}
+  @keyframes rise2{from{opacity:0;transform:translateY(44px)}to{opacity:1;transform:none}}
+  .steps li:nth-child(even),.mv div:nth-child(even){animation-name:slideR}
+  @keyframes slideR{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:none}}
+  .hero h1,.hero p{animation:none}
+  .perks .wrap{animation:none}
+}
 @media (prefers-reduced-motion: reduce){.petal{display:none}
   *,*::before,*::after{animation:none!important;opacity:1!important;transition:none!important;scroll-behavior:auto!important}
   .stem{stroke-dashoffset:0}.leaf,.bl{opacity:1;transform:none}
@@ -167,6 +192,7 @@ footer{border-top:1px solid var(--line)}
   <header class="nav">
     <a class="brand" href="#home" aria-label="Flower Boutique home"><svg viewBox="0 0 80 80" class="glow" aria-hidden="true"><use href="#rose"/></svg>Flower Boutique</a>
     <a class="l" href="#products">Products</a>
+    <a class="l" href="#gallery">Gallery</a>
     <a class="l" href="#about">About</a>
     <a class="l" href="#process">Process</a>
     <a class="l" href="#why">Why us</a>
@@ -208,16 +234,29 @@ footer{border-top:1px solid var(--line)}
   <div class="perk"><b>Versatile</b><span>Gifts, décor, occasions</span></div>
 </div></div>
 
+<section id="gallery">
+  <div class="wrap">
+    <h2>The collection</h2>
+    <p class="sec-sub">Swipe through our handmade paper flowers.</p>
+    <div class="car" role="region" aria-roledescription="carousel" aria-label="Flower photos">
+      <div class="track" tabindex="0"><figure class="slide"><img src="images/Roses.jpg" alt="Red paper roses in a woven basket" loading="lazy"><figcaption>Roses</figcaption></figure><figure class="slide"><img src="images/Daisies.jpg" alt="White paper daisies in a woven basket" loading="lazy"><figcaption>Daisies</figcaption></figure><figure class="slide"><img src="images/Lotus.jpg" alt="Multicoloured paper lotus flowers" loading="lazy"><figcaption>Lotus flowers</figcaption></figure><figure class="slide"><img src="images/Lavender.jpg" alt="Lilac paper lavender in a black vase" loading="lazy"><figcaption>Lavender</figcaption></figure><figure class="slide"><img src="images/Calla_lillies.jpg" alt="Paper calla lilies in a black vase" loading="lazy"><figcaption>Calla lilies</figcaption></figure></div>
+      <button class="cb prev" aria-label="Previous photo">&#8592;</button>
+      <button class="cb next" aria-label="Next photo">&#8594;</button>
+    </div>
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+</section>
+
 <section id="products">
   <div class="wrap">
     <h2>Our products</h2>
     <p class="sec-sub">Handmade paper flowers, each inspired by a flower you’d find in nature.</p>
     <div class="cards">
-      <article class="card"><div class="pic"><img src="images/Daisies.jpg" alt="White paper daisies with yellow centres in a woven basket" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Daisies</h3><p>Classic and cheerful, made for bright bouquets.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
-      <article class="card"><div class="pic"><img src="images/Roses.jpg" alt="Red paper roses in a woven basket" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Roses</h3><p>Timeless, and a natural pick for gifts and special occasions.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
-      <article class="card"><div class="pic"><img src="images/Lavender.jpg" alt="Lilac paper lavender stems in a black vase" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Lavender</h3><p>Delicate and graceful, ideal for soft, elegant arrangements.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
-      <article class="card"><div class="pic"><img src="images/Lotus.jpg" alt="Multicoloured paper lotus flowers in a woven basket" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Lotus flowers</h3><p>Elegant blooms that stand for beauty and grace.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
-      <article class="card"><div class="pic"><img src="images/Calla_lillies.jpg" alt="Paper calla lilies in red, orange, brown and maroon in a black vase" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Calla lilies</h3><p>Simple, sophisticated shape for refined arrangements.</p><span class="price">Price coming soon</span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><img src="images/Daisies.jpg" alt="White paper daisies with yellow centres in a woven basket" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Daisies</h3><p>Classic and cheerful, made for bright bouquets.</p><span class="price"><s>25</s><b>21.99</b></span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><img src="images/Roses.jpg" alt="Red paper roses in a woven basket" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Roses</h3><p>Timeless, and a natural pick for gifts and special occasions.</p><span class="price"><s>25</s><b>21.99</b></span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><img src="images/Lavender.jpg" alt="Lilac paper lavender stems in a black vase" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Lavender</h3><p>Delicate and graceful, ideal for soft, elegant arrangements.</p><span class="price"><s>15</s><b>12.99</b></span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><img src="images/Lotus.jpg" alt="Multicoloured paper lotus flowers in a woven basket" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Lotus flowers</h3><p>Elegant blooms that stand for beauty and grace.</p><span class="price"><s>20</s><b>17.99</b></span><a class="btn" href="#contact">Order now</a></div></article>
+      <article class="card"><div class="pic"><img src="images/Calla_lillies.jpg" alt="Paper calla lilies in red, orange, brown and maroon in a black vase" width="560" height="700" loading="lazy"></div><div class="txt"><h3>Calla lilies</h3><p>Simple, sophisticated shape for refined arrangements.</p><span class="price"><s>15</s><b>12.99</b></span><a class="btn" href="#contact">Order now</a></div></article>
     </div>
   </div>
 </section>
@@ -293,5 +332,16 @@ footer{border-top:1px solid var(--line)}
   </div>
   <div class="fbar">© Flower Boutique. Handmade in the Maldives.</div>
 </footer>
+<script>
+(function(){try{
+var t=document.querySelector('.track'),d=document.querySelectorAll('.dots i');if(!t)return;
+var w=function(){var s=t.querySelector('.slide');return s.offsetWidth+16};
+document.querySelector('.prev').onclick=function(){t.scrollBy({left:-w()})};
+document.querySelector('.next').onclick=function(){t.scrollBy({left:w()})};
+var u=function(){var i=Math.round(t.scrollLeft/w());d.forEach(function(x,k){x.classList.toggle('on',k===i)})};
+t.addEventListener('scroll',u,{passive:true});u();
+t.addEventListener('keydown',function(e){if(e.key==='ArrowRight')t.scrollBy({left:w()});if(e.key==='ArrowLeft')t.scrollBy({left:-w()})});
+}catch(e){}})();
+</script>
 </body>
 </html>
